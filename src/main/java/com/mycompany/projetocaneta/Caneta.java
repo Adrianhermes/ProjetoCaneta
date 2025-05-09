@@ -4,35 +4,57 @@ import javax.swing.JOptionPane;
 
 //Classe
 public class Caneta {
-    String modelo;
-    String cor;
-    float ponta;
-    int carga;
-    boolean tampada;
+    public String modelo;
+    private float ponta;
+    private boolean tampada;
+    private String cor;
     
     //Metodos
-    void status(){
-        JOptionPane.showMessageDialog(null,"Seu modelo é " + this.modelo);
-        JOptionPane.showMessageDialog(null,"Uma caneta de cor " + this.cor);
-        JOptionPane.showMessageDialog(null,"O tamanho da sua ponta é " + this.ponta);
-        JOptionPane.showMessageDialog(null,"Sua carga atual é de " + this.carga + "%");
-        JOptionPane.showMessageDialog(null,"Esta tampada? " + this.tampada);
-    } 
     
-    void rabiscar(){
-       if(this.tampada == true){
-            JOptionPane.showMessageDialog(null,"ERRO!! A CANETA ESTÁ TAMPADA, NÃO PODE RABISCAR");
-        }else{
-            JOptionPane.showMessageDialog(null,"PODE RABISCAR!");
-        }
-        
+    public void status(){
+        JOptionPane.showMessageDialog(null,"SOBRE A CANETA");
+        JOptionPane.showMessageDialog(null,"Modelo " + this.getModelo());
+        JOptionPane.showMessageDialog(null,"Ponta " + this.getPonta());
+        JOptionPane.showMessageDialog(null,"Cor " + this.getCor());
+        JOptionPane.showMessageDialog(null,"Tampada " + this.tampada);
+    }
+
+    public Caneta(String modelo, float ponta, String cor) {
+        this.modelo = modelo;
+        this.ponta = ponta;
+        this.cor = cor;
     }
     
-    void tampar(){
+    public String getModelo() { 
+        return this.modelo;
+    } 
+
+    public void setModelo(String modelo) { 
+        this.modelo = modelo;
+    }
+    
+    public float getPonta() { 
+        return this.ponta;
+    }
+    
+    public void setPonta(float ponta) { 
+        this.ponta = ponta;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+    
+    public void tampar(){
         this.tampada = true;
     }
     
-    void destampar(){
+    public void destampar(){
         this.tampada = false;
     }
+ 
 }
